@@ -1,0 +1,44 @@
+<mvc:View xmlns:smartlist="sap.ui.comp.smartlist" controllerName="sflight.controller.FlightInfo"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+    xmlns:smartList="sap.ui.comp.smartlist"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+ 
+
+    displayBlock="true"
+    xmlns="sap.m">
+    <Page id="FlightInfo">
+
+    <smartfilterbar:SmartFilterBar 
+        id="samrtfilterBar"
+        persistencyKey="uniqueAndStablePresistencKey"
+        entitySet="za_cds_SFLIGHT_view1"
+        considerSelectionVariants="true">
+    </smartfilterbar:SmartFilterBar>
+
+
+    <smartlist:SmartList 
+       id="smartList"
+       smartFilter="smartFilterBar"  
+       entitySet="za_cds_SFLIGHT_view1"
+       header="Flight Information"
+       showRowCount="true"
+       showFullScreenButton="true"
+       enableAutoBinding="true">
+
+       <smartlist:listItemTemplate>
+          <StandardListItem 
+             id="standardListItem"
+             type="Navigation"
+             press="handAirlinePress"
+             title="{carrid}"
+             info="{price}"
+             description="{fldate}"  >
+             
+          </StandardListItem>
+       
+       </smartlist:listItemTemplate>
+    </smartlist:SmartList>
+   
+    </Page>
+</mvc:View>
